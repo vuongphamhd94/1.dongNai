@@ -23,7 +23,7 @@
         border-bottom: 1px solid #e2e8f0;
       }
       .title--left {
-        font-family: 'Inter';
+        font-family: "Inter";
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
@@ -67,7 +67,7 @@
       }
       .notification--number {
         position: absolute;
-        font-family: 'Inter';
+        font-family: "Inter";
         font-style: normal;
         font-weight: 700;
         font-size: 10px;
@@ -84,6 +84,46 @@
         top: 0;
         right: 0;
       }
+
+      .top--sub__nva {
+        margin: 1rem 0;
+        display: flex;
+        align-items: center;
+        color: gray;
+      }
+      .top--sub__nva span,
+      .top--sub__title span {
+        margin-right: 1rem;
+      }
+
+      .top--sub--search {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1rem 0;
+      }
+      .top--sub--search__left {
+        display: flex;
+        align-items: center;
+      }
+      .top--sub--search__left input {
+        width: 30rem;
+        height: 2.5rem;
+        border: 1px solid gray;
+        border-radius: 0.5rem;
+      }
+      .top--sub__title {
+        display: flex;
+        align-items: center;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: -0.005em;
+        color: #425466;
+      }
+
       .thead--tab {
         display: flex;
         height: 40px;
@@ -164,7 +204,7 @@
     </div>
 
     <div class="top--sub">
-      <div>
+      <div class="top--sub__nva">
         <span class="material-icons"> home </span>
         <span>Biên mục chỉnh lý</span>
         <span class="material-icons"> chevron_right </span>
@@ -173,8 +213,8 @@
         <span>Biên mục hồ sơ tài liệu</span>
         <span class="material-icons"> star_border </span>
       </div>
-      <div>
-        <div class="top--sub__search">
+      <div class="top--sub--search">
+        <div class="top--sub--search__left">
           <input type="text" placeholder="placeholder" />
           <span class="material-icons"> tune </span>
           <button>
@@ -893,18 +933,18 @@
     </div>
 
     <script>
-      let list_thead_tab = document.querySelectorAll('.thead--tab>div');
-      let tab_body_row = document.querySelectorAll('.body--tab>div');
+      let list_thead_tab = document.querySelectorAll(".thead--tab>div");
+      let tab_body_row = document.querySelectorAll(".body--tab>div");
       for (let i = 0; i < list_thead_tab.length; i++) {
         let width_col = list_thead_tab[i].getBoundingClientRect().width;
         width_col = width_col.toFixed(0);
         console.log(width_col);
         for (let j = 0; j < tab_body_row.length; j++) {
-          tab_body_row[j].querySelectorAll('.col')[i].style.width =
-            width_col + 'px';
+          tab_body_row[j].querySelectorAll(".col")[i].style.width =
+            width_col + "px";
         }
       }
-      console.log(tab_body_row[0].querySelectorAll('.col'));
+      console.log(tab_body_row[0].querySelectorAll(".col"));
       console.log(list_thead_tab);
     </script>
   </body>
