@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .title {
+        height: 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .title--left {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 136.52%;
+        color: #1180ba;
+      }
+      .title--right {
+        display: flex;
+        align-items: center;
+      }
+      .avartar {
+        position: relative;
+        border: 1px solid red;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+      }
+      .avartar .name {
+        position: absolute;
+        color: #ffffff;
+        width: 36px;
+        height: 36px;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .username {
+        margin: 0 1rem;
+      }
+      .notification {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid #f7936f;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .notification--number {
+        position: absolute;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 10px;
+        background: linear-gradient(
+            0deg,
+            rgba(241, 96, 99, 0.16),
+            rgba(241, 96, 99, 0.16)
+          ),
+          #ffffff;
+        color: #f16063;
+        padding: 2px 4px;
+        border-radius: 50%;
+        top: 0;
+        right: 0;
+      }
+      .thead--tab {
+        display: flex;
+        height: 40px;
+      }
+      .thead--tab div {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        height: 100%;
+        background-color: #fafafb;
+        border-left: 1px solid #e7e7e7;
+        border-top: 1px solid #e7e7e7;
+      }
+      .thead--tab div:last-child,
+      .body--tab > .row > .col:last-child {
+        border-right: 1px solid #e7e7e7;
+      }
+      .body--tab > .row {
+        display: flex;
+        height: 40px;
+      }
+      .body--tab > .row > .col {
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        border-left: 1px solid #e7e7e7;
+        border-top: 1px solid #e7e7e7;
+      }
+      .text--center {
+        width: 100%;
+        text-align: center;
+      }
+      .body--tab > .row > .col > div {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      /* .body--tab > .row > .col > div:hover {
+        overflow: visible;
+        background-color: white;
+        z-index: 1;
+      } */
+      .body--tab > .row:last-child > .col {
+        border-bottom: 1px solid #e7e7e7;
+      }
+      .sub--tab,
+      .sub--left,
+      .sub--right,
+      .page {
+        display: flex;
+        align-items: center;
+      }
+      .sub--tab {
+        justify-content: space-between;
+        margin-top: 2rem;
+      }
+      .page span {
+        padding: 0 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title">
+      <div class="title--left">HỆ THỐNG LƯU TRỮ ĐIỆN TỬ</div>
+      <div class="title--right">
+        <div class="avartar">
+          <img src="image.png" alt="avartar" />
+          <span class="name">DA</span>
+        </div>
+        <div class="username">Do Ngoc Long</div>
+        <div class="notification">
+          <span class="material-icons"> notifications </span>
+          <span class="notification--number">8</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="top--sub">
+      <div>
+        <span class="material-icons"> home </span>
+        <span>Biên mục chỉnh lý</span>
+        <span class="material-icons"> chevron_right </span>
+      </div>
+      <div class="top--sub__title">
+        <span>Biên mục hồ sơ tài liệu</span>
+        <span class="material-icons"> star_border </span>
+      </div>
+      <div>
+        <div class="top--sub__search">
+          <input type="text" placeholder="placeholder" />
+          <span class="material-icons"> tune </span>
+          <button>
+            <span class="material-icons"> search </span>
+          </button>
+        </div>
+        <div class="top--sub__add">
+          <button>
+            <span class="material-icons"> add </span>
+            <span>Tạo mới</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab">
+      <div class="thead--tab" style="width: 100%">
+        <div style="width: 60px">STT</div>
+        <div style="width: 60px"><input type="checkbox" /></div>
+        <div style="width: 160px">SỐ, KÝ HIỆU</div>
+        <div style="width: auto">TIÊU ĐỀ HỒ SƠ</div>
+        <div style="width: 160px">TRẠNG THÁI</div>
+        <div style="width: 200px">THỜI GIAN TÀI LIỆU</div>
+        <div style="width: 220px">THỜI GIAN BÁO CÁO</div>
+        <div style="width: 160px">PHÂN LOẠI</div>
+        <div style="width: 200px">SỐ TỜ/SỐ TRANG</div>
+        <div style="width: 200px">ĐƠN VỊ NỘP LƯU</div>
+        <div style="width: 200px">GHI CHÚ</div>
+        <div style="width: 60px">
+          <span class="material-icons"> settings </span>
+        </div>
+      </div>
+      <div class="body--tab">
+        <div class="row">
+          <div class="col">
+            <div class="text--center">1</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>BU-4</div>
+          </div>
+          <div class="col">
+            <div><div>Kế hoạch tìm kiếm KH tiềm năng_TNgan</div></div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="tt--huy">Huỷ</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>1 năm</div>
+          </div>
+          <div class="col">
+            <div>Phần cứng & Phần mềm</div>
+          </div>
+          <div class="col">
+            <div class="text--center">72</div>
+          </div>
+          <div class="col">
+            <div>Công Ty TNHH Thương Mại Trần Đức</div>
+          </div>
+          <div class="col">
+            <div>Ký kết lần 1</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">2</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>JK-35</div>
+          </div>
+          <div class="col">
+            <div>Thanh toán gói dịch vụ trong VPN</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--taoMoi">Tạo mới</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>6 tháng</div>
+          </div>
+          <div class="col">
+            <div>Phần cứng & Phần mềm</div>
+          </div>
+          <div class="col">
+            <div class="text--center">456</div>
+          </div>
+          <div class="col">
+            <div>
+              Viettel TPHCM - Chi Nhánh Tập Đoàn Công Nghiệp - Viễn Thông Quân
+              Đội
+            </div>
+          </div>
+          <div class="col">
+            <div>Tìm giải pháp mới</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">3</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>KPI-1493</div>
+          </div>
+          <div class="col">
+            <div>Lập Hợp đồng cho khách hàng</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--hetHan">Hết hạn</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>6 tháng</div>
+          </div>
+          <div class="col">
+            <div>Kho lưu chữ</div>
+          </div>
+          <div class="col">
+            <div class="text--center">457</div>
+          </div>
+          <div class="col">
+            <div>Công Ty CP Dịch Vụ Viễn Thông NamVietNet</div>
+          </div>
+          <div class="col">
+            <div>Cơ hội quảng bá</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">4</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>IE-506</div>
+          </div>
+          <div class="col">
+            <div>Làm báo cáo</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--huy">Huỷ</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>Vĩnh viễn</div>
+          </div>
+          <div class="col">
+            <div>Phần cứng</div>
+          </div>
+          <div class="col">
+            <div class="text--center">787</div>
+          </div>
+          <div class="col">
+            <div>Công Ty TNHH Thương Mại Dịch Vụ Công Nghệ Song Thành</div>
+          </div>
+          <div class="col">
+            <div>Xem data người dùng</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">5</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>L-339</div>
+          </div>
+          <div class="col">
+            <div>Lập Hợp đồng cho khách hàng</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--daDuyet">Đã duyệt</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>6 tháng</div>
+          </div>
+          <div class="col">
+            <div>Số hoá</div>
+          </div>
+          <div class="col">
+            <div class="text--center">78</div>
+          </div>
+          <div class="col">
+            <div>ITTA - Công Ty CP ITTA</div>
+          </div>
+          <div class="col">
+            <div>Lấy dữ liệu khách hàng</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">6</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>ERH-2897</div>
+          </div>
+          <div class="col">
+            <div>Lên DSKH</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--hetHan">Hết hạn</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>Vĩnh viễn</div>
+          </div>
+          <div class="col">
+            <div>Phần mềm số hoá</div>
+          </div>
+          <div class="col">
+            <div class="text--center">6</div>
+          </div>
+          <div class="col">
+            <div>
+              Công Ty TNHH Thương Mại Dịch Vụ Kỹ Thuật Viễn Thông Bảo An
+            </div>
+          </div>
+          <div class="col">
+            <div>Cơ hội ký hợp đồng</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">7</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>LTCF-855</div>
+          </div>
+          <div class="col">
+            <div>Báo cáo nghiệm thu dự án ABC</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--huy">Huỷ</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>Vĩnh viễn</div>
+          </div>
+          <div class="col">
+            <div>Kết hợp</div>
+          </div>
+          <div class="col">
+            <div class="text--center">67</div>
+          </div>
+          <div class="col">
+            <div>Viễn Thông SunOcean - Công Ty Viễn Thông SunOcean</div>
+          </div>
+          <div class="col">
+            <div>Dự án portal</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">8</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>E-162</div>
+          </div>
+          <div class="col">
+            <div>Lên DSKH</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--taoMoi">Tạo mới</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>6 tháng</div>
+          </div>
+          <div class="col">
+            <div>Phần mềm số hoá</div>
+          </div>
+          <div class="col">
+            <div class="text--center">65</div>
+          </div>
+          <div class="col">
+            <div>Đội Cảnh Sát Phòng Cháy, Chữa Cháy và Cứu Nạn, Cứu Hộ</div>
+          </div>
+          <div class="col">
+            <div>Chỉnh sửa lỗi cho khách</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">9</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>M-4</div>
+          </div>
+          <div class="col">
+            <div>Kế hoạch tìm kiếm KH tiềm năng_TNgan cho năm 2022</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--daDuyet">Đã duyệt</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>6 tháng</div>
+          </div>
+          <div class="col">
+            <div>Kho vật lý</div>
+          </div>
+          <div class="col">
+            <div class="text--center">8</div>
+          </div>
+          <div class="col">
+            <div>
+              An Di Việt Nam - Công Ty TNHH Tư Vấn & Dịch Thuật An Di Việt Nam
+            </div>
+          </div>
+          <div class="col">
+            <div>Tối ưu SEO cho đối tác</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">10</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>I-9</div>
+          </div>
+          <div class="col">
+            <div>Demo cho KH VIP</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--taoMoi">Tạo mới</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>1 năm</div>
+          </div>
+          <div class="col">
+            <div>Phần mềm</div>
+          </div>
+          <div class="col">
+            <div class="text--center">12</div>
+          </div>
+          <div class="col">
+            <div>Công Ty Cổ Phần Kỹ Thuật Hạ Tầng Viễn Thông</div>
+          </div>
+          <div class="col">
+            <div>Dự án số hoá</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">11</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>EQX-7</div>
+          </div>
+          <div class="col">
+            <div>Thanh toán gói dịch vụ trong VPN</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--huy">Huỷ</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>6 tháng</div>
+          </div>
+          <div class="col">
+            <div>Số hoá</div>
+          </div>
+          <div class="col">
+            <div class="text--center">103</div>
+          </div>
+          <div class="col">
+            <div>Công Ty TNHH Thương Mại Dịch Vụ Kết Nối Đức Quang</div>
+          </div>
+          <div class="col">
+            <div>Dự án điều hành</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">12</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>K-7</div>
+          </div>
+          <div class="col">
+            <div>Làm báo cáo</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--taoMoi">Tạo mới</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>6 tháng</div>
+          </div>
+          <div class="col">
+            <div>Phân loại hồ sơ 01</div>
+          </div>
+          <div class="col">
+            <div class="text--center">43</div>
+          </div>
+          <div class="col">
+            <div>
+              Viettel Thừa Thiên Huế - Chi Nhánh Tập Đoàn Công Nghiệp - Viễn
+              Thông Quân Đội
+            </div>
+          </div>
+          <div class="col">
+            <div>Lấy thông tin đối tác</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">13</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>CU-76</div>
+          </div>
+          <div class="col">
+            <div>Làm báo cáo</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--huy">Huỷ</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>1 năm</div>
+          </div>
+          <div class="col">
+            <div>Kho vật lý</div>
+          </div>
+          <div class="col">
+            <div class="text--center">12</div>
+          </div>
+          <div class="col">
+            <div>ông Ty TNHH Đầu Tư Và Phát Triển Công Nghệ Đại Dương</div>
+          </div>
+          <div class="col">
+            <div>Hỗ trợ đối tác SHB</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">14</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>J-219</div>
+          </div>
+          <div class="col">
+            <div>Tổ chức sinh nhật cho CBNV T8</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--daDuyet">Đã duyệt</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>6 tháng</div>
+          </div>
+          <div class="col">
+            <div>Phần cứng</div>
+          </div>
+          <div class="col">
+            <div class="text--center">23</div>
+          </div>
+          <div class="col">
+            <div>Công Ty CP Đầu Tư Phát Triển Công Nghệ Và Truyền Thông</div>
+          </div>
+          <div class="col">
+            <div>Dự án phần mềm</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="text--center">15</div>
+          </div>
+          <div class="col">
+            <div class="text--center"><input type="checkbox" /></div>
+          </div>
+          <div class="col">
+            <div>LZ-424</div>
+          </div>
+          <div class="col">
+            <div>Thanh toán gói dịch vụ trong VPN</div>
+          </div>
+          <div class="col">
+            <div>
+              <span class="tt--daDuyet">Đã duyệt</span>
+            </div>
+          </div>
+          <div class="col">
+            <div>02/2022 - 05/2022</div>
+          </div>
+          <div class="col">
+            <div>Vĩnh viễn</div>
+          </div>
+          <div class="col">
+            <div>Phần mềm số hoá</div>
+          </div>
+          <div class="col">
+            <div class="text--center">768</div>
+          </div>
+          <div class="col">
+            <div>Công Ty TNHH Thương Mại Kỹ Thuật Thế Giới Mạng</div>
+          </div>
+          <div class="col">
+            <div>Tinh chỉnh hoạt động khách hàng</div>
+          </div>
+          <div class="col">
+            <div class="text--center">
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub--tab">
+        <div class="sub--left">Tổng số <span>1284</span> bản ghi</div>
+        <div class="sub--right">
+          <div class="show--page">
+            <label
+              >Hiển thị:
+              <select id="show--page">
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+                <option>25</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="page">
+            <span class="material-icons"> keyboard_double_arrow_left </span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>...</span>
+            <span>10</span>
+            <span class="material-icons"> keyboard_double_arrow_right </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let list_thead_tab = document.querySelectorAll('.thead--tab>div');
+      let tab_body_row = document.querySelectorAll('.body--tab>div');
+      for (let i = 0; i < list_thead_tab.length; i++) {
+        let width_col = list_thead_tab[i].getBoundingClientRect().width;
+        width_col = width_col.toFixed(0);
+        console.log(width_col);
+        for (let j = 0; j < tab_body_row.length; j++) {
+          tab_body_row[j].querySelectorAll('.col')[i].style.width =
+            width_col + 'px';
+        }
+      }
+      console.log(tab_body_row[0].querySelectorAll('.col'));
+      console.log(list_thead_tab);
+    </script>
+  </body>
+</html>
