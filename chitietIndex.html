@@ -29,6 +29,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="detail.css" />
   </head>
   <body>
     <div id="container">
@@ -61,36 +62,134 @@
             <span>Biên mục hồ sơ tài liệu</span>
             <i class="icon icon--star"></i>
           </div>
-          <div class="top--sub--search">
-            <div class="top--sub--search__left">
-              <input type="text" placeholder="placeholder" />
-              <div class="search--setting">
-                <i class="icon icon--sett"></i>
+
+          <div class="detail">
+            <div class="detail--title">
+              <div>
+                <i class="icon icon--plus"></i>
+                Hồ sơ:
+                <span>HS0505</span>
               </div>
-              <button class="btn btn-search">
-                <i class="icon icon--search"></i>
-              </button>
+              <div>
+                <div>
+                  <i class="icon icon--location"></i>
+                  <span>Chờ duyệt</span>
+                  <span>Kho 1 - kệ 1 - giá 1</span>
+                </div>
+                <div>
+                  <button>
+                    <i class="icon icon--delete"></i>
+                  </button>
+                  <button>
+                    <i class="icon icon--location"></i>
+                    Chọn vị trí
+                  </button>
+                  <button>
+                    <i class="icon icon--submit"></i>
+                    Trình duyệt
+                  </button>
+                </div>
+              </div>
             </div>
-            <div class="top--sub__right">
-              <button type="button" class="btn btn--rs">
-                <i class="icon icon--rs"></i>
-                <span>Reset</span>
-              </button>
-              <button type="button" class="btn btn--rd">
-                <i class="icon icon--rd"></i>
-              </button>
-              <button type="button" class="btn btn--ud">
-                <i class="icon icon--ud"></i>
-              </button>
-              <button type="button" class="btn btn--add">
-                <i class="icon icon--add"></i>
-                <span>Tạo mới</span>
-              </button>
+            <div class="detail--content">
+              <table>
+                <tr>
+                  <td class="tb-title">Mã định danh cơ quan</td>
+                  <td>PC07</td>
+                  <td class="tb-title">Mã hồ sơ</td>
+                  <td>PC0720222</td>
+                </tr>
+                <tr>
+                  <td class="tb-title">Cơ quan lưu trữ lịch sử</td>
+                  <td>Mã cơ quan</td>
+                  <td class="tb-title">Phông</td>
+                  <td>Phông 2022</td>
+                </tr>
+                <tr>
+                  <td class="tb-title">Mục lục</td>
+                  <td>Dân số 2022</td>
+                  <td class="tb-title">Năm hình thành hồ sơ</td>
+                  <td>2022</td>
+                </tr>
+                <tr>
+                  <td class="tb-title">Số hiệu hồ sơ</td>
+                  <td>Số ký hiệu</td>
+                  <td class="tb-title">Tiêu đề hồ sơ</td>
+                  <td>Dân số Việt Nam 2022</td>
+                </tr>
+                <tr>
+                  <td class="tb-title">Thời hạn bảo quản</td>
+                  <td>1 năm</td>
+                  <td class="tb-title">Chế độ sử dụng</td>
+                  <td>Không hạn chế</td>
+                </tr>
+                <tr>
+                  <td class="tb-title">Ngôn ngữ</td>
+                  <td>Tiếng việt</td>
+                  <td class="tb-title">Đơn vị nộp lưu</td>
+                  <td>PC07-lưu trữ thông tin</td>
+                </tr>
+                <tr>
+                  <td class="tb-title">Phân loại hồ sơ</td>
+                  <td>Hồ sơ KHHGĐ</td>
+                  <td class="tb-title">Thời gian bắt đầu - kết thúc</td>
+                  <td>23/05/2021 - 23/05/2021</td>
+                </tr>
+                <tr>
+                  <td class="tb-title">Tổng số văn bản trong hồ sơ</td>
+                  <td>Số văn bản</td>
+                  <td class="tb-title">Ký hiệu thông tin</td>
+                  <td>Dân số</td>
+                </tr>
+                <tr>
+                  <td class="tb-title">Từ khoá</td>
+                  <td>Từ khoá</td>
+                  <td class="tb-title">Số tờ</td>
+                  <td>158</td>
+                </tr>
+                <tr>
+                  <td class="tb-title">Số trang</td>
+                  <td>0</td>
+                  <td class="tb-title">Tình trạng vật lý</td>
+                  <td>Tốt và bình thường</td>
+                </tr>
+                <tr>
+                  <td class="tb-title">Chú giải</td>
+                  <td>
+                    Lưu ý tình trạng trẻ hoá khu vực Thành Phố Hồ Chí Minh
+                  </td>
+                  <td class="tb-title">Mã barcode</td>
+                  <td>PC0722222</td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
         <!-- khung nhin cua bang -->
         <div class="container--view--tab">
+          <div>Danh sách thành phần hồ sơ</div>
+          <div class="top--sub--search">
+            <div class="top--sub--search__left">
+              <input type="text" placeholder="Từ khoá tìm kiếm" />
+              <button class="btn btn-search">
+                <i class="icon icon--search"></i>
+              </button>
+            </div>
+            <div class="top--sub__right">
+              <button type="button" class="btn btn--upload">
+                <i class="icon icon--upload"></i>
+                Tải file lên
+              </button>
+              <button type="button" class="btn btn--add">
+                <i class="icon icon--add"></i>
+                Thêm tài liệu
+              </button>
+              <button type="button" class="btn btn--export">
+                <i class="icon icon--excel"></i>
+                Xuất file
+              </button>
+            </div>
+          </div>
           <div class="view--tab">
             <div class="tab">
               <div class="thead--tab" style="width: 100%">
